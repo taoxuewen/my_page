@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物冥币定制 - AI Studio</title>
+    <link rel="stylesheet" href="/static/css/pet-coin.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="/" class="back-link">← 返回首页</a>
+            <div class="title-section">
+                <h1 class="main-title">宠物冥币定制</h1>
+                <p class="subtitle">为您的毛孩子定制专属的冥界通货</p>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="content-wrapper">
+                <!-- 输入表单 -->
+                <div class="form-section" id="formSection">
+                    <div class="form-card">
+                        <h2 class="form-title">🐾 填写宠物信息</h2>
+                        
+                        <div class="form-group">
+                            <label for="petType">宠物类型</label>
+                            <select id="petType" required>
+                                <option value="">请选择宠物类型</option>
+                                <option value="cat">🐱 小猫咪</option>
+                                <option value="dog">🐶 小狗狗</option>
+                                <option value="hamster">🐹 仓鼠</option>
+                                <option value="rabbit">🐰 兔子</option>
+                                <option value="bird">🐦 小鸟</option>
+                                <option value="fish">🐟 小鱼</option>
+                                <option value="turtle">🐢 小乌龟</option>
+                                <option value="other">🦎 其他</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="petName">宠物名字</label>
+                            <input type="text" id="petName" placeholder="例如：团子、旺财、小白" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="petFeatures">宠物特点/喜好</label>
+                            <textarea id="petFeatures" placeholder="例如：爱吃小鱼干、喜欢睡觉、见到陌生人就躲..." required></textarea>
+                        </div>
+
+                        <button id="generateBtn" class="generate-btn">
+                            <span class="btn-text">✨ 生成专属冥币</span>
+                            <span class="btn-loading">正在设计中...</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 结果展示 -->
+                <div class="result-section" id="resultSection" style="display: none;">
+                    <div class="coin-display">
+                        <div class="coin-card">
+                            <div class="coin">
+                                <div class="coin-inner">
+                                    <div class="coin-front">
+                                        <div class="coin-hole hole-top"></div>
+                                        <div class="coin-hole hole-bottom"></div>
+                                        <div class="coin-text" id="coinTitle">冥币</div>
+                                        <div class="coin-icon" id="coinIcon">🐱</div>
+                                        <div class="coin-value" id="coinValue">100万</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="coin-info">
+                            <h3 id="coinName">团子专属小鱼干冥币</h3>
+                            <p class="coin-desc" id="coinDesc">为爱吃小鱼干的团子特别定制，面值100万冥币</p>
+                            <div class="coin-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">宠物：</span>
+                                    <span id="resultPetName">团子</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">类型：</span>
+                                    <span id="resultPetType">小猫咪</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">面值：</span>
+                                    <span id="resultCoinValue">100万冥币</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="createNewBtn" class="create-new-btn">🔄 再来一张</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>💝 让爱跨越生死，财富永相伴</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/pet-coin.js"></script>
+</body>
+</html>

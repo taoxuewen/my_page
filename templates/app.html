@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app.name }} - AI Studio</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="/" class="back-link">← 返回</a>
+            <div class="logo">
+                <h1>{{ app.name }}</h1>
+            </div>
+        </header>
+        
+        <main class="main app-page">
+            <div class="app-content">
+                <div class="input-section">
+                    <textarea id="userInput" placeholder="请输入您的内容..."></textarea>
+                    <button id="submitBtn" class="submit-btn">提交</button>
+                </div>
+                
+                <div class="output-section">
+                    <div id="outputArea" class="output-box">
+                        <p class="placeholder">结果将显示在这里</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>© 2026 AI Studio. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script src="/static/js/app.js"></script>
+    <script>
+        const currentAppId = '{{ app.id }}';
+    </script>
+</body>
+</html>
