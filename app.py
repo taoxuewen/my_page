@@ -1,11 +1,15 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, Response
 import os
 import logging
 import random
+import json
 from datetime import datetime
+from aliyun_llm import AliyunLLM
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+
+llm = AliyunLLM()
 
 # 配置日志系统
 LOG_DIR = '/usr/mypage/logs'
@@ -45,6 +49,13 @@ def log_request():
     app_logger.info(f"Request: {method} {path} from {remote_addr}")
 
 AI_APPS = [
+    {
+        'id': 'interview',
+        'name': 'AI模拟面试',
+        'description': '基于阿里云大模型的智能面试助手，根据简历进行针对性面试',
+        'icon': '🎯',
+        'route': '/app/interview'
+    },
     {
         'id': 'pet-coin',
         'name': '宠物冥币定制',
@@ -101,6 +112,8 @@ def app_page(app_id):
 
     if app_id == 'pet-coin':
         return render_template('pet-coin.html', app=app_info)
+    if app_id == 'interview':
+        return render_template('interview.html', app=app_info)
 
     return render_template('app.html', app=app_info)
 
@@ -139,6 +152,25 @@ def generate_pet_coin():
 
     app_logger.info(f"冥币生成成功: {coin_name}")
     return jsonify(response)
+
+@app.route('/api/interview/chat', methods=['POST'])
+def interview_chat():
+    data = request.get_json()
+    session_id = data.get('sessionId', '')
+    message = data.get('message', '')
+
+    app_logger.info(f"面试会话: {session_id}, 消息长度: {len(message)}")
+
+    def generate():
+        try:
+            for chunk in llm.chat_stream(session_id, message):
+                yield f"data: {json.dumps({'content': chunk}, ensure_ascii=False)}\n\n"
+            yield "data: [DONE]\n\n"
+        except Exception as e:
+            app_logger.error(f"面试API错误: {str(e)}")
+            yield f"data: {json.dumps({'content': f'抱歉，发生了错误：{str(e)}'}, ensure_ascii=False)}\n\n"
+
+    return Response(generate(), mimetype='text/event-stream')
 
 @app.route('/api/<app_id>', methods=['POST'])
 def api_call(app_id):
