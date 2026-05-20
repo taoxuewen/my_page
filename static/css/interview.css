@@ -470,6 +470,12 @@ body {
         height: 200px;
     }
 
+    .start-btn {
+        padding: 20px 18px;
+        font-size: 17px;
+        min-height: 56px;
+    }
+
     .messages {
         padding: 20px;
     }
