@@ -14,7 +14,15 @@ function show(view) {
   views.upload.hidden = view !== "upload";
   views.loading.hidden = view !== "loading";
   views.result.hidden = view !== "result";
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  // 修复 B5：移除强制滚动到顶部，改为在显示结果时滚动到结果区域
+  if (view === "result") {
+    setTimeout(() => {
+      const resultSection = document.querySelector("#view-result");
+      if (resultSection) {
+        resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  }
 }
 
 function showError(msg) {

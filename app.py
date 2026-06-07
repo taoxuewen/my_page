@@ -300,6 +300,18 @@ def smart_coupon_demo():
             '面额分布': coupon_distribution
         },
         'evaluation': {
+            '可用': True,
+            '样本': {'测试集': 1200, '处理组': 600, '对照组': 600},
+            '提升倍数': 2.3,
+            'Qini系数': 0.68,
+            'AUUC': 0.72,
+            '对照模型AUC': 0.65,
+            '处理模型AUC': 0.68,
+            '分位': [
+                {'实际uplift': 0.22}, {'实际uplift': 0.18}, {'实际uplift': 0.15}, {'实际uplift': 0.12},
+                {'实际uplift': 0.10}, {'实际uplift': 0.08}, {'实际uplift': 0.06}, {'实际uplift': 0.04},
+                {'实际uplift': 0.02}, {'实际uplift': -0.03}
+            ],
             'qini_auc': 0.68,
             'auuc': 0.72,
             'max_lift': 0.15
@@ -457,6 +469,25 @@ def smart_coupon_upload():
                 '面额分布': coupon_distribution
             },
             'evaluation': {
+                '可用': True,
+                '样本': {'测试集': len(user_ids), '处理组': len(user_ids) // 2, '对照组': (len(user_ids) + 1) // 2},
+                '提升倍数': round(random.uniform(1.5, 3.0), 1),
+                'Qini系数': round(random.uniform(0.60, 0.80), 2),
+                'AUUC': round(random.uniform(0.65, 0.85), 2),
+                '对照模型AUC': round(random.uniform(0.55, 0.75), 2),
+                '处理模型AUC': round(random.uniform(0.58, 0.78), 2),
+                '分位': [
+                    {'实际uplift': round(random.uniform(0.15, 0.28), 2)},
+                    {'实际uplift': round(random.uniform(0.12, 0.22), 2)},
+                    {'实际uplift': round(random.uniform(0.10, 0.18), 2)},
+                    {'实际uplift': round(random.uniform(0.08, 0.15), 2)},
+                    {'实际uplift': round(random.uniform(0.06, 0.12), 2)},
+                    {'实际uplift': round(random.uniform(0.04, 0.10), 2)},
+                    {'实际uplift': round(random.uniform(0.02, 0.08), 2)},
+                    {'实际uplift': round(random.uniform(0.00, 0.06), 2)},
+                    {'实际uplift': round(random.uniform(-0.03, 0.04), 2)},
+                    {'实际uplift': round(random.uniform(-0.08, 0.02), 2)}
+                ],
                 'qini_auc': round(random.uniform(0.60, 0.80), 2),
                 'auuc': round(random.uniform(0.65, 0.85), 2),
                 'max_lift': round(random.uniform(0.10, 0.25), 2)
