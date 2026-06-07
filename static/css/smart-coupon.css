@@ -33,8 +33,30 @@ html, body {
   padding: 64px 24px 80px;
 }
 
+/* ---------- Section ---------- */
+.section { margin-bottom: 64px; }
+.section--light {
+  background: #f5f5f7;
+  margin: 0 -24px 64px;
+  padding: 64px 24px;
+  border-radius: 24px;
+}
+.section__head { text-align: center; margin-bottom: 40px; }
+.section__title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+}
+.section__desc {
+  font-size: 17px;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 /* ---------- Hero ---------- */
-.hero { text-align: center; margin-bottom: 48px; }
+.hero { text-align: center; margin-bottom: 64px; }
 .hero__badge {
   display: inline-block;
   font-size: 13px;
@@ -58,6 +80,169 @@ html, body {
   margin: 0 auto;
 }
 .hero__subtitle strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Audience Cards ---------- */
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 760px) { .audience-grid { grid-template-columns: 1fr; } }
+
+.audience-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  box-shadow: var(--shadow);
+  transition: transform .2s, box-shadow .2s;
+}
+.audience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.audience-card__icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+.audience-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+.audience-card > p {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+.audience-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+.audience-card li { margin-bottom: 8px; }
+.audience-card li strong { color: var(--ink); }
+
+/* ---------- Case Cards ---------- */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
+
+.case-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.case-card__tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--blue);
+  background: #f0f6ff;
+  padding: 4px 12px;
+  border-radius: 980px;
+  margin-bottom: 14px;
+}
+.case-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+.case-card__meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+.case-card__strategy {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  padding: 14px;
+  background: #f5f5f7;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+.case-card__strategy strong { color: var(--ink); }
+
+.case-card__metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+.metric { text-align: center; }
+.metric__value {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.metric__value .metric__unit {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-left: 2px;
+}
+.metric__label {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: 4px;
+}
+
+/* ---------- CTA Section ---------- */
+.section--cta {
+  margin-bottom: 48px;
+}
+.cta-card {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 48px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+}
+.cta-card h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.cta-card > p {
+  font-size: 17px;
+  opacity: 0.9;
+  margin: 0 0 28px;
+}
+.cta-wechat {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.15);
+  padding: 14px 28px;
+  border-radius: 980px;
+  margin-bottom: 12px;
+}
+.cta-wechat__label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+.cta-wechat__id {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  letter-spacing: 0.05em;
+}
+.cta-note {
+  font-size: 13px;
+  opacity: 0.7;
+  margin: 0;
+}
 
 /* ---------- Card ---------- */
 .card {

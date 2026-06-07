@@ -26,6 +26,19 @@
 
 ## 记录区
 
+## [B2] 演示 API 返回字段名与前端期望不一致，导致页面显示 NaN/undefined　—　2026-06-07
+- **现象**：智能发券引擎页面点击计算后，顶部统计卡片显示 `NaN`、`NaN人`、`¥NaN/¥NaN`、`undefined%`，但表格数据正常显示。
+- **复现**：访问 `/app/smart-coupon`，点击"开始计算"或"生成演示数据"按钮。
+- **根因**：前端 `renderResult` 函数期望特定的中文字段名（如 `客户总数`、`建议发券人数`、`预期券成本`、`总预算`、`预算使用率`），但演示 API 返回的是英文字段名（`total_users`、`recommended_users`、`used_budget`、`total_budget`），字段名不匹配导致读取 undefined，数学运算后显示 NaN。
+- **修复**：修改 `app.py` 中 `smart_coupon_demo` 函数返回的 `summary` 对象字段名，与前端期望的中文字段名保持一致：
+  - `total_users` → `客户总数`
+  - `recommended_users` → `建议发券人数`
+  - `used_budget` → `预期券成本`
+  - `total_budget` → `总预算`
+  - 新增 `预算使用率` 字段（计算：used_budget / total_budget * 100）
+- **验证**：`curl http://localhost/api/smart-coupon/demo` 返回的 `summary` 对象包含正确的中文字段名（`客户总数`、`建议发券人数`、`总预算`、`预期券成本`、`预算使用率`），刷新页面重新计算后统计卡片显示正确数值。
+- **关联**：涉及前端 `smart-coupon.js` 的 `renderResult` 函数。
+
 ## [B1] 源码包 `data/` 被根 .gitignore 误伤，从未推上 GitHub　—　2026-06-06
 - **现象**：在 Windows / 任意机器上 `git clone` 后跑项目，会 `ModuleNotFoundError`——`src/coupon_engine/data/` 整个包（`loader.py` / `synth.py` / `__init__.py` 等）在远端缺失。本地能跑（文件在磁盘上），但克隆下来跑不起来。
 - **复现**：`git ls-tree -r --name-only HEAD -- smart-coupon-engine/src/coupon_engine/data/` 返回空；`git check-ignore -v <该目录下文件>` 命中规则 `.gitignore:60:data/`。
