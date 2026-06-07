@@ -355,7 +355,31 @@ html, body {
 .cta-note {
   font-size: 13px;
   opacity: 0.7;
-  margin: 0;
+  margin: 0 0 24px;
+}
+.cta-plan {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.cta-plan__link {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 980px;
+  transition: all 0.2s;
+}
+.cta-plan__link:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+.cta-plan__desc {
+  font-size: 13px;
+  opacity: 0.7;
+  margin: 8px 0 0;
 }
 
 /* ---------- Card ---------- */

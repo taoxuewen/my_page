@@ -64,13 +64,6 @@ AI_APPS = [
         'route': '/app/smart-coupon'
     },
     {
-        'id': 'plan-presentation',
-        'name': '智能营销企划书',
-        'description': '基于 Tracardi + GrowthBook + Dify 的智能营销引擎完整方案',
-        'icon': '📊',
-        'route': '/app/plan-presentation'
-    },
-    {
         'id': 'pet-coin',
         'name': '宠物冥币定制',
         'description': '为已故宠物定制专属冥币，让爱跨越生死',
