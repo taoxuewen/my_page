@@ -64,6 +64,13 @@ AI_APPS = [
         'route': '/app/smart-coupon'
     },
     {
+        'id': 'plan-presentation',
+        'name': '智能营销企划书',
+        'description': '基于 Tracardi + GrowthBook + Dify 的智能营销引擎完整方案',
+        'icon': '📊',
+        'route': '/app/plan-presentation'
+    },
+    {
         'id': 'pet-coin',
         'name': '宠物冥币定制',
         'description': '为已故宠物定制专属冥币，让爱跨越生死',
@@ -123,6 +130,8 @@ def app_page(app_id):
         return render_template('interview.html', app=app_info)
     if app_id == 'smart-coupon':
         return render_template('smart-coupon.html', app=app_info)
+    if app_id == 'plan-presentation':
+        return render_template('plan-presentation.html')
 
     return render_template('app.html', app=app_info)
 

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>智能营销引擎 - AI-Native 全链路闭环解决方案</title>
+  <meta name="description" content="基于 Tracardi + GrowthBook + Dify 的开源智能营销引擎，让中型企业用 1/10 的成本获得神策级别的智能营销能力。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/plan-presentation.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__brand">
+        <span class="navbar__logo">⚡</span>
+        <span class="navbar__title">智能营销引擎</span>
+      </div>
+      <ul class="navbar__links">
+        <li><a href="#overview">项目概述</a></li>
+        <li><a href="#market">市场分析</a></li>
+        <li><a href="#product">产品方案</a></li>
+        <li><a href="#business">商业模式</a></li>
+        <li><a href="#roadmap">路线图</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__tagline">AI-Native 智能营销引擎</p>
+        <h1 class="hero__title">让中型企业<br>用 1/10 的成本<br>获得神策级智能营销能力</h1>
+        <p class="hero__description">基于 Tracardi + GrowthBook + Dify 的开源技术栈，提供「数据采集 → 用户画像 → 智能决策 → 效果验证 → 持续优化」全链路闭环。</p>
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn-primary">联系我们</a>
+          <a href="#overview" class="btn btn-secondary">了解更多</a>
+        </div>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__graph">
+          <div class="graph-line graph-line--1"></div>
+          <div class="graph-line graph-line--2"></div>
+          <div class="graph-line graph-line--3"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="section section--overview">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">项目概述</h2>
+        <p class="section__subtitle">我们为有自有用户触点的中型企业提供 AI 驱动的智能营销解决方案</p>
+      </div>
+
+      <div class="overview-cards">
+        <div class="overview-card">
+          <div class="overview-card__icon">🎯</div>
+          <h3 class="overview-card__title">产品定位</h3>
+          <p class="overview-card__desc">面向年营收 1000 万 - 5 亿的中型企业，提供企业级智能营销能力</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card__icon">⚡</div>
+          <h3 class="overview-card__title">核心价值</h3>
+          <p class="overview-card__desc">用因果推断（Uplift）实现精准营销，让每一分营销预算都花在刀刃上</p>
+        </div>
+        <div class="overview-card">
+          <div class="overview-card__icon">🤝</div>
+          <h3 class="overview-card__title">商业模式</h3>
+          <p class="overview-card__desc">按效果分成，零风险合作。只有帮客户省钱，我们才赚钱</p>
+        </div>
+      </div>
+
+      <!-- Tech Stack Comparison -->
+      <div class="tech-stack">
+        <h3 class="tech-stack__title">技术方案对比</h3>
+        <div class="tech-table">
+          <table>
+            <thead>
+              <tr>
+                <th>方案</th>
+                <th>数据采集</th>
+                <th>A/B 实验</th>
+                <th>AI 能力</th>
+                <th>部署复杂度</th>
+                <th>月成本</th>
+                <th>适合阶段</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tech-table__label">完整版</td>
+                <td>Tracardi CDP</td>
+                <td>GrowthBook</td>
+                <td>Dify Agent</td>
+                <td>高</td>
+                <td>3000-5000 元</td>
+                <td>10+ 客户</td>
+              </tr>
+              <tr class="tech-table__highlight">
+                <td class="tech-table__label">轻量版</td>
+                <td>PostHog SDK</td>
+                <td>PostHog Experiments</td>
+                <td>LiteLLM 网关</td>
+                <td>中</td>
+                <td>500-1000 元</td>
+                <td>3-10 客户</td>
+              </tr>
+              <tr>
+                <td class="tech-table__label">极简版</td>
+                <td>CSV + pandas</td>
+                <td>Python + scipy</td>
+                <td>requests 调 API</td>
+                <td>低</td>
+                <td>200-300 元</td>
+                <td>0-3 客户</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tech-stack__note">推荐路径：先用极简版验证需求（1-3个月）→ 轻量版产品化（3-6个月）→ 完整版规模化（6-12个月）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Section -->
+  <section id="market" class="section section--market">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">市场分析</h2>
+        <p class="section__subtitle">精准定位市场痛点，把握最佳切入时机</p>
+      </div>
+
+      <!-- Market Pain Points -->
+      <div class="market-pain">
+        <h3 class="market-pain__title">市场痛点</h3>
+        <div class="pain-cards">
+          <div class="pain-card">
+            <div class="pain-card__tier">大型企业</div>
+            <p class="pain-card__desc">买得起神策/GrowingIO（年费 30-100 万），但定制化需求难以满足</p>
+          </div>
+          <div class="pain-card pain-card--target">
+            <div class="pain-card__tier">中型企业 ✅</div>
+            <p class="pain-card__desc">有用户数据，有营销需求，但买不起商业 CDP。现状：Excel + 人工运营，效率低、效果差</p>
+          </div>
+          <div class="pain-card">
+            <div class="pain-card__tier">小型企业</div>
+            <p class="pain-card__desc">数据量小，营销需求简单，不是目标客户</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Target Customers -->
+      <div class="target-customers">
+        <h3 class="target-customers__title">目标客户画像</h3>
+        <div class="customer-grid">
+          <div class="customer-card">
+            <div class="customer-card__icon">🛒</div>
+            <h4>微信私域电商</h4>
+            <p>小程序、公众号、企业微信</p>
+            <span class="customer-card__size">年 GMV 500万-5亿</span>
+          </div>
+          <div class="customer-card">
+            <div class="customer-card__icon">🍔</div>
+            <h4>连锁餐饮/茶饮</h4>
+            <p>会员小程序、POS、企业微信</p>
+            <span class="customer-card__size">门店 10-500 家</span>
+          </div>
+          <div class="customer-card">
+            <div class="customer-card__icon">📚</div>
+            <h4>在线教育</h4>
+            <p>App、小程序、H5 课程页</p>
+            <span class="customer-card__size">年营收 500万+</span>
+          </div>
+          <div class="customer-card">
+            <div class="customer-card__icon">📦</div>
+            <h4>DTC 品牌</h4>
+            <p>官网/独立站、App、小程序</p>
+            <span class="customer-card__size">年 GMV 1000万+</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Market Size -->
+      <div class="market-size">
+        <h3 class="market-size__title">市场规模</h3>
+        <div class="size-stats">
+          <div class="size-stat">
+            <div class="size-stat__value">5.8 万亿</div>
+            <div class="size-stat__label">2023 年中国私域电商交易规模</div>
+          </div>
+          <div class="size-stat">
+            <div class="size-stat__value">9.49 亿</div>
+            <div class="size-stat__label">微信小程序用户（2024年）</div>
+          </div>
+          <div class="size-stat">
+            <div class="size-stat__value">300万+</div>
+            <div class="size-stat__label">微信小程序数量</div>
+          </div>
+        </div>
+        <div class="size-calculation">
+          <p><strong>TAM（总可触达市场）：</strong>5 万家 × 5-15 万/年 = <strong>25-75 亿/年</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Section -->
+  <section id="product" class="section section--product">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">产品方案</h2>
+        <p class="section__subtitle">核心营销场景与技术架构</p>
+      </div>
+
+      <!-- Architecture -->
+      <div class="architecture">
+        <h3 class="architecture__title">系统架构</h3>
+        <div class="arch-diagram">
+          <div class="arch-layer arch-layer--top">
+            <div class="arch-box">数据采集层</div>
+            <div class="arch-box">Web SDK / App SDK / API 事件 / 第三方导入</div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer arch-layer--main">
+            <div class="arch-box arch-box--primary">
+              <h4>Tracardi</h4>
+              <p>用户画像 | 实时分群 | 事件聚合 | ID 合并 | 自动化规则引擎</p>
+            </div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer arch-layer--middle">
+            <div class="arch-box">
+              <h4>GrowthBook</h4>
+              <p>A/B 实验 | Feature Flag | CUPED 分析 | 多臂老虎机</p>
+            </div>
+            <div class="arch-box">
+              <h4>Dify</h4>
+              <p>营销文案生成 | 智能客服 Agent | 策略推荐 Agent | RAG 知识库</p>
+            </div>
+          </div>
+          <div class="arch-arrow">▼</div>
+          <div class="arch-layer arch-layer--bottom">
+            <div class="arch-box">外部触达渠道</div>
+            <div class="arch-box">邮件/短信 | 推送通知 | 优惠券发放 | 广告投放</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Scenario -->
+      <div class="core-scenario">
+        <h3 class="core-scenario__title">核心场景：智能优惠券发放</h3>
+        <div class="scenario-steps">
+          <div class="scenario-step">
+            <div class="scenario-step__num">01</div>
+            <div class="scenario-step__content">
+              <h4>Tracardi 采集行为</h4>
+              <p>用户浏览商品 3 次未购买 → 触发规则引擎</p>
+            </div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-step__num">02</div>
+            <div class="scenario-step__content">
+              <h4>Dify 智能决策</h4>
+              <p>分析用户画像 + 历史数据 → 生成个性化优惠券方案</p>
+            </div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-step__num">03</div>
+            <div class="scenario-step__content">
+              <h4>Tracardi 执行触达</h4>
+              <p>通过邮件/短信/推送发送「惊喜券」</p>
+            </div>
+          </div>
+          <div class="scenario-step">
+            <div class="scenario-step__num">04</div>
+            <div class="scenario-step__content">
+              <h4>GrowthBook 评估效果</h4>
+              <p>A/B 实验对比 → CUPED 分析 uplift 是否显著</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Uplift Model -->
+      <div class="uplift-model">
+        <h3 class="uplift-model__title">Uplift 因果建模</h3>
+        <p class="uplift-model__desc">传统响应模型无法区分「因为券才买」和「不发券也会买」，Uplift 模型只对真正需要的用户发券</p>
+        <div class="uplift-quadrant">
+          <div class="quadrant-grid">
+            <div class="quadrant-item quadrant-item--lost">
+              <h4>Lost Cause</h4>
+              <p>发不发都不买</p>
+            </div>
+            <div class="quadrant-item quadrant-item--sure">
+              <h4>Sure Thing</h4>
+              <p>不发券也会买</p>
+            </div>
+            <div class="quadrant-item quadrant-item--sleeping">
+              <h4>Sleeping Dog</h4>
+              <p>发券反而不买</p>
+            </div>
+            <div class="quadrant-item quadrant-item--persuadable">
+              <h4>Persuadable</h4>
+              <p>✅ 只给这些人发</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Section -->
+  <section id="business" class="section section--business">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">商业模式</h2>
+        <p class="section__subtitle">按效果计费，与客户利益深度绑定</p>
+      </div>
+
+      <!-- Pricing Models -->
+      <div class="pricing-models">
+        <div class="pricing-card">
+          <div class="pricing-card__icon">💰</div>
+          <h3>节省券成本分成</h3>
+          <div class="pricing-card__rate">20-30%</div>
+          <p class="pricing-card__desc">按每月节省的券成本分成，没省下来不收钱</p>
+          <div class="pricing-card__example">
+            <p>例：月均发券成本从 15 万降至 10 万，月节省 5 万 → 我们月收 1-1.5 万</p>
+          </div>
+        </div>
+        <div class="pricing-card pricing-card--highlight">
+          <div class="pricing-card__badge">推荐</div>
+          <div class="pricing-card__icon">🤝</div>
+          <h3>基础年费 + 超额分成</h3>
+          <div class="pricing-card__rate">4.8-19.8万/年</div>
+          <p class="pricing-card__desc">基础年费覆盖部署成本，超额部分按节省金额分成</p>
+          <div class="pricing-card__example">
+            <p>标准版：4.8 万 + 15% 分成<br>专业版：9.8 万 + 10% 分成</p>
+          </div>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-card__icon">📈</div>
+          <h3>增量 GMV 分成</h3>
+          <div class="pricing-card__rate">3-5%</div>
+          <p class="pricing-card__desc">按 A/B 实验中实验组的增量 GMV 分成</p>
+          <div class="pricing-card__example">
+            <p>例：实验组比对照组多 20 万 GMV → 我们月收 1 万</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue Model -->
+      <div class="revenue-model">
+        <h3 class="revenue-model__title">收入预测</h3>
+        <div class="revenue-table">
+          <table>
+            <thead>
+              <tr>
+                <th>阶段</th>
+                <th>定价模式</th>
+                <th>客单价</th>
+                <th>目标客户数</th>
+                <th>年收入</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>第 1 年</td>
+                <td>项目制 + 效果对赌</td>
+                <td>5-15 万</td>
+                <td>5-10 个</td>
+                <td>50-100 万</td>
+              </tr>
+              <tr>
+                <td>第 2 年</td>
+                <td>基础年费 + 超额分成</td>
+                <td>9.8-19.8 万</td>
+                <td>20-30 个</td>
+                <td>200-500 万</td>
+              </tr>
+              <tr>
+                <td>第 3 年</td>
+                <td>基础年费 + 超额分成</td>
+                <td>9.8-29.8 万</td>
+                <td>50-80 个</td>
+                <td>500-2000 万</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="revenue-chart">
+          <div class="chart-bar chart-bar--year1"></div>
+          <div class="chart-bar chart-bar--year2"></div>
+          <div class="chart-bar chart-bar--year3"></div>
+          <div class="chart-labels">
+            <span>第1年</span>
+            <span>第2年</span>
+            <span>第3年</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cost Structure -->
+      <div class="cost-structure">
+        <h3 class="cost-structure__title">成本结构</h3>
+        <div class="cost-breakdown">
+          <div class="cost-item">
+            <div class="cost-item__bar" style="width: 60%"></div>
+            <div class="cost-item__label">人力成本 (60%)</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-item__bar" style="width: 15%"></div>
+            <div class="cost-item__label">云服务器 (15%)</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-item__bar" style="width: 10%"></div>
+            <div class="cost-item__label">LLM API (10%)</div>
+          </div>
+          <div class="cost-item">
+            <div class="cost-item__bar" style="width: 15%"></div>
+            <div class="cost-item__label">其他 (15%)</div>
+          </div>
+        </div>
+        <p class="cost-summary">月成本约 6-10 万，预计第 12-18 个月达到盈亏平衡</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section id="roadmap" class="section section--roadmap">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">实施路线图</h2>
+        <p class="section__subtitle">分阶段稳步推进，快速验证需求</p>
+      </div>
+
+      <div class="roadmap-timeline">
+        <div class="roadmap-phase">
+          <div class="roadmap-phase__marker"></div>
+          <div class="roadmap-phase__content">
+            <div class="roadmap-phase__header">
+              <span class="roadmap-phase__period">Phase 1 (1-2月)</span>
+              <span class="roadmap-phase__name">极简版 - 验证需求</span>
+            </div>
+            <ul class="roadmap-phase__items">
+              <li>商家导出 CSV → Python 跑模型 → 输出报告</li>
+              <li>部署 Streamlit 页面，客户可自助上传数据</li>
+              <li>拿到第一个付费 POC 案例</li>
+              <li>技术栈：Python + Streamlit + scipy + requests</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase__marker"></div>
+          <div class="roadmap-phase__content">
+            <div class="roadmap-phase__header">
+              <span class="roadmap-phase__period">Phase 2 (2-4月)</span>
+              <span class="roadmap-phase__name">轻量版 - 产品化</span>
+            </div>
+            <ul class="roadmap-phase__items">
+              <li>部署 PostHog：事件采集 + A/B 实验</li>
+              <li>部署 LiteLLM：统一 LLM 调用</li>
+              <li>部署 Metabase：客户自助报表</li>
+              <li>技术栈：PostHog + LiteLLM + Metabase + FastAPI</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase__marker"></div>
+          <div class="roadmap-phase__content">
+            <div class="roadmap-phase__header">
+              <span class="roadmap-phase__period">Phase 3 (4-6月)</span>
+              <span class="roadmap-phase__name">AI Agent 深化</span>
+            </div>
+            <ul class="roadmap-phase__items">
+              <li>升级到 Dify：营销策略 Agent + RAG 知识库</li>
+              <li>智能客户旅程 Agent</li>
+              <li>技术栈：Dify + Tracardi（开始引入完整版组件）</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="roadmap-phase">
+          <div class="roadmap-phase__marker"></div>
+          <div class="roadmap-phase__content">
+            <div class="roadmap-phase__header">
+              <span class="roadmap-phase__period">Phase 4 (6-12月)</span>
+              <span class="roadmap-phase__name">完整版 - 规模化</span>
+            </div>
+            <ul class="roadmap-phase__items">
+              <li>升级到 Tracardi：完整 CDP + 自动化引擎</li>
+              <li>升级到 GrowthBook：高级实验能力</li>
+              <li>统一管理后台、多租户隔离</li>
+              <li>行业模板（餐饮/电商/教育）</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Competitive Advantage -->
+  <section class="section section--advantage">
+    <div class="container">
+      <div class="section__header">
+        <h2 class="section__title">核心优势</h2>
+        <p class="section__subtitle">为什么我们能赢</p>
+      </div>
+
+      <div class="advantage-grid">
+        <div class="advantage-card">
+          <div class="advantage-card__icon">🎯</div>
+          <h3>Uplift 精准发券</h3>
+          <p>竞品没有的因果推断驱动个体级决策，只对真正需要的用户发券</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">🤖</div>
+          <h3>AI Agent 能力</h3>
+          <p>营销策略自动生成、文案智能创作、数据分析自主完成</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">💰</div>
+          <h3>成本优势</h3>
+          <p>开源底座，年费可做到竞品的 1/10，中小企业也能负担</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">🔒</div>
+          <h3>数据安全</h3>
+          <p>完全私有化部署，数据不出企业内网，符合合规要求</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">🔄</div>
+          <h3>灵活定制</h3>
+          <p>开源架构，可根据行业需求深度定制，快速响应客户需求</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">📊</div>
+          <h3>效果可验证</h3>
+          <p>严格的 A/B 实验设计，效果透明可验证，让数据说话</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section section--contact">
+    <div class="container">
+      <div class="contact-content">
+        <h2 class="contact-content__title">开启智能营销之旅</h2>
+        <p class="contact-content__desc">我们提供免费 POC，用您的数据帮您算一笔账，看看智能营销能为您节省多少成本。</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="contact-item__label">微信</span>
+            <span class="contact-item__value">taoxuecwen</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-item__label">邮箱</span>
+            <span class="contact-item__value">contact@smartmarketing.ai</span>
+          </div>
+        </div>
+        <a href="#" class="btn btn-primary btn-large">立即预约 POC</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <span class="footer__logo">⚡</span>
+          <span class="footer__title">智能营销引擎</span>
+        </div>
+        <p class="footer__copyright">© 2024 Smart Marketing Engine. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('navbar--scrolled');
+      } else {
+        navbar.classList.remove('navbar--scrolled');
+      }
+    });
+  </script>
+</body>
+</html>
