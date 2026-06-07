@@ -57,6 +57,13 @@ AI_APPS = [
         'route': '/app/interview'
     },
     {
+        'id': 'smart-coupon',
+        'name': '智能发券引擎',
+        'description': '用因果模型算清楚每位客户该发多少券，在预算内优化发券策略',
+        'icon': '🎫',
+        'route': '/app/smart-coupon'
+    },
+    {
         'id': 'pet-coin',
         'name': '宠物冥币定制',
         'description': '为已故宠物定制专属冥币，让爱跨越生死',
@@ -114,6 +121,8 @@ def app_page(app_id):
         return render_template('pet-coin.html', app=app_info)
     if app_id == 'interview':
         return render_template('interview.html', app=app_info)
+    if app_id == 'smart-coupon':
+        return render_template('smart-coupon.html', app=app_info)
 
     return render_template('app.html', app=app_info)
 
@@ -171,6 +180,42 @@ def interview_chat():
             yield f"data: {json.dumps({'content': f'抱歉，发生了错误：{str(e)}'}, ensure_ascii=False)}\n\n"
 
     return Response(generate(), mimetype='text/event-stream')
+
+@app.route('/api/smart-coupon/demo', methods=['GET'])
+def smart_coupon_demo():
+    """智能发券引擎演示API - 返回示例数据"""
+    app_logger.info("智能发券引擎演示API调用")
+    
+    # 返回演示数据
+    demo_data = {
+        'ok': True,
+        'demo': True,
+        'summary': {
+            'total_users': 4000,
+            'recommended_users': 2847,
+            'total_budget': 60000,
+            'used_budget': 58420,
+            'avg_coupon_value': 20.52
+        },
+        'evaluation': {
+            'qini_auc': 0.68,
+            'auuc': 0.72,
+            'max_lift': 0.15
+        },
+        'coupon_values': [5, 10, 20, 50, 100],
+        'columns': ['用户ID', '推荐面额', '预测增量', '历史消费', 'RFM得分'],
+        'preview': [
+            {'用户ID': 'U001', '推荐面额': 20, '预测增量': 0.12, '历史消费': 1580, 'RFM得分': 85},
+            {'用户ID': 'U002', '推荐面额': 50, '预测增量': 0.18, '历史消费': 3200, 'RFM得分': 92},
+            {'用户ID': 'U003', '推荐面额': 10, '预测增量': 0.08, '历史消费': 890, 'RFM得分': 68},
+            {'用户ID': 'U004', '推荐面额': 100, '预测增量': 0.22, '历史消费': 4500, 'RFM得分': 95},
+            {'用户ID': 'U005', '推荐面额': 5, '预测增量': 0.05, '历史消费': 320, 'RFM得分': 45}
+        ],
+        'n_rows': 2847
+    }
+    
+    app_logger.info("智能发券引擎演示数据返回成功")
+    return jsonify(demo_data)
 
 @app.route('/api/<app_id>', methods=['POST'])
 def api_call(app_id):
