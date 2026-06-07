@@ -111,6 +111,10 @@ COIN_TITLES = ['专属冥币', '特制冥币', '限定冥币', '珍藏冥币', '
 def index():
     return render_template('index.html', apps=AI_APPS)
 
+@app.route('/app/plan-presentation')
+def plan_presentation():
+    return render_template('plan-presentation.html')
+
 @app.route('/app/<app_id>')
 def app_page(app_id):
     app_info = next((a for a in AI_APPS if a['id'] == app_id), None)
@@ -123,8 +127,6 @@ def app_page(app_id):
         return render_template('interview.html', app=app_info)
     if app_id == 'smart-coupon':
         return render_template('smart-coupon.html', app=app_info)
-    if app_id == 'plan-presentation':
-        return render_template('plan-presentation.html')
 
     return render_template('app.html', app=app_info)
 
