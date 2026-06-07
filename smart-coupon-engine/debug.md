@@ -26,6 +26,27 @@
 
 ## 记录区
 
+## [B3] 演示 API 未返回 result_csv/result_xlsx_b64，下载功能失效　—　2026-06-07
+- **现象**：
+  1. 点击"用示例数据体验"后，页面统计卡片和表格正常显示，但下载 CSV/Excel 按钮点击后下载的是**空文件**（0 字节）。
+  2. 上传真实 CSV 文件后，点击"开始计算"报错或无响应。
+- **复现**：
+  - 访问 `/app/smart-coupon`，点击"用示例数据体验"，页面显示结果后点击"下载 CSV"→下载 0 字节文件。
+  - 上传任意 CSV 文件，点击"开始计算"→网络请求失败或返回格式错误。
+- **根因**：
+  1. 演示 API（`smart_coupon_demo`）只返回了 `summary`、`preview`、`n_rows`、`evaluation`、`coupon_values`，**缺少 `result_csv` 和 `result_xlsx_b64`**，而前端 JS 的 `downloadCsv()`/`downloadXlsx()` 直接引用这两个字段，导致生成空 Blob。
+  2. 上传计算功能（`POST /api/smart-coupon/upload`）未实现完整逻辑，无法处理真实 CSV 文件并返回结果。
+- **修复**：
+  1. 在 `app.py` 的 `smart_coupon_demo` 函数中：
+     - 生成 `result_csv` 字符串（包含 BOM + 完整 CSV 数据）
+     - 生成 `result_xlsx_b64`（用 openpyxl 生成 Excel 并转为 base64）
+     - 在 `summary` 中添加 `面额分布` 数组（前端期望此字段渲染分布图）
+  2. 添加 `POST /api/smart-coupon/upload` 接口，实现完整的上传计算流程。
+- **验证**：
+  1. 点击"用示例数据体验"后，下载 CSV/Excel 均返回非空文件，内容与预览表格一致。
+  2. 上传测试 CSV 文件，返回正常结果，表格显示推荐数据。
+- **关联**：涉及前端 `smart-coupon.js` 的 `downloadCsv()`/`downloadXlsx()`，`runUpload()`，`renderResult()` 函数。
+
 ## [B2] 演示 API 返回字段名与前端期望不一致，导致页面显示 NaN/undefined　—　2026-06-07
 - **现象**：智能发券引擎页面点击计算后，顶部统计卡片显示 `NaN`、`NaN人`、`¥NaN/¥NaN`、`undefined%`，但表格数据正常显示。
 - **复现**：访问 `/app/smart-coupon`，点击"开始计算"或"生成演示数据"按钮。

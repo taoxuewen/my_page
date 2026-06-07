@@ -68,22 +68,25 @@ async function runUpload() {
   const cu = customersInput.files[0];
   const pr = productsInput.files[0];
   const be = behaviorInput.files[0];
-  if (!cu || !pr || !be) {
-    showError("请先把「客户属性」「商品属性」「行为日志」三个 CSV 都上传。");
+  
+  // 行为日志是必需的
+  if (!be) {
+    showError("请上传「行为日志」CSV 文件。");
     return;
   }
+  
   const fd = new FormData();
-  fd.append("customers", cu);
-  fd.append("products", pr);
+  if (cu) fd.append("customers", cu);
+  if (pr) fd.append("products", pr);
   fd.append("behavior", be);
-  fd.append("budget", $("#budget").value || "0");
+  fd.append("budget", $("#budget").value || "60000");
 
+  $("#loading-text").textContent = "正在解析数据并计算每位客户的最优券面额…";
   show("loading");
   try {
-    // 使用演示API（完整功能需要安装依赖）
-    const resp = await fetch("/api/smart-coupon/demo");
+    const resp = await fetch("/api/smart-coupon/upload", { method: "POST", body: fd });
     const data = await resp.json();
-    if (!resp.ok) throw new Error(data.detail || "计算失败");
+    if (!resp.ok) throw new Error(data.error || "计算失败");
     lastResult = data;
     renderResult(data);
   } catch (err) {
