@@ -1,17 +1,20 @@
 :root {
-  --bg: #fbfbfd;
-  --card: #ffffff;
-  --ink: #1d1d1f;
-  --ink-soft: #6e6e73;
-  --line: #e5e5ea;
-  --blue: #0071e3;
-  --blue-dark: #0058b0;
-  --dark: #1d1d1f;
-  --green: #34c759;
-  --red: #ff3b30;
-  --radius: 18px;
-  --shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.10);
+  /* 与主站 design-system.css 同步的设计令牌（独立部署，复制一份） */
+  --bg: #FAFAF8;
+  --card: #FFFFFF;
+  --ink: #16161A;
+  --ink-soft: #3A3A42;
+  --line: #E4E4E0;
+  --blue: #1F6F5C;
+  --blue-dark: #185847;
+  --dark: #16161A;
+  --green: #2E7D5B;
+  --red: #C0392B;
+  --radius: 16px;
+  --shadow: 0 4px 16px rgba(22, 22, 26, 0.08);
+  --shadow-lg: 0 12px 40px rgba(22, 22, 26, 0.12);
+  --font-display: 'Fraunces', 'Songti SC', 'PingFang SC', Georgia, serif;
+  --font-sans: 'Hanken Grotesk', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -21,10 +24,14 @@ html, body {
   padding: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro SC", "SF Pro Text",
-    "PingFang SC", "Helvetica Neue", "Microsoft YaHei", system-ui, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 .page {
