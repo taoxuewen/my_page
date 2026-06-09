@@ -1,175 +1,191 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================================
+   首页 (index) + 通用应用页 (app) 专属样式
+   公共部分见 design-system.css
+   ============================================================ */
+
+/* ===================== 首页 Hero ===================== */
+.home-hero {
+  position: relative;
+  padding: var(--space-24) 0 var(--space-16);
+  overflow: hidden;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    color: #1d1d1f;
+/* 编辑风背景：极淡的网格 + 一抹强调色光晕 */
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--gray-200) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gray-200) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 70%);
+          mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 0%, transparent 70%);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+.home-hero .container { position: relative; }
+
+.home-hero__eyebrow {
+  margin-bottom: var(--space-4);
+  animation: rise 0.7s var(--ease-out) both;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 60px;
+.home-hero__title {
+  font-size: clamp(2.75rem, 6vw, var(--text-5xl));
+  font-weight: 600;
+  line-height: 1.05;
+  max-width: 16ch;
+  animation: rise 0.7s var(--ease-out) 0.08s both;
 }
 
-.logo h1 {
-    font-size: 48px;
-    font-weight: 600;
-    color: #fff;
-    letter-spacing: -0.5px;
-    margin-bottom: 10px;
+.home-hero__title em {
+  font-style: italic;
+  color: var(--color-accent);
 }
 
-.subtitle {
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
+.home-hero__lead {
+  margin-top: var(--space-6);
+  max-width: 52ch;
+  font-size: var(--text-lg);
+  color: var(--color-ink-soft);
+  animation: rise 0.7s var(--ease-out) 0.16s both;
 }
 
-.back-link {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    margin-bottom: 20px;
-    opacity: 0.9;
-    transition: opacity 0.2s;
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.back-link:hover {
-    opacity: 1;
+.brand-mark { color: var(--color-accent); }
+
+/* ===================== 应用区 ===================== */
+.apps {
+  padding-bottom: var(--space-16);
 }
 
-.main {
-    margin-bottom: 60px;
+.apps__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: var(--space-6);
+  margin-bottom: var(--space-8);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.apps__title {
+  font-size: var(--text-2xl);
+}
+
+.apps__count {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
 }
 
 .apps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
 }
 
+/* ---- 应用卡片 ---- */
 .app-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  color: inherit;
+  box-shadow: var(--shadow-sm);
+  min-height: 220px;
 }
 
-.app-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+.app-card__icon {
+  font-size: 40px;
+  line-height: 1;
+  margin-bottom: var(--space-6);
 }
 
-.app-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
+.app-card__name {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
 }
 
-.app-name {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: #1d1d1f;
+.app-card__desc {
+  font-size: var(--text-base);
+  color: var(--color-ink-soft);
+  flex: 1;
 }
 
-.app-description {
-    font-size: 16px;
-    color: #6e6e73;
-    line-height: 1.5;
+.app-card__cta {
+  margin-top: var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  transition: transform var(--transition-fast);
 }
 
-.app-page {
-    max-width: 900px;
-    margin: 0 auto;
+.app-card.card--hover:hover .app-card__cta {
+  transform: translateX(4px);
 }
 
-.app-content {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+/* ---- 敬请期待（不可点击） ---- */
+.app-card--soon {
+  background: var(--gray-100);
+  border-style: dashed;
+  box-shadow: none;
+  cursor: not-allowed;
 }
 
-.input-section {
-    margin-bottom: 30px;
+.app-card--soon .app-card__icon,
+.app-card--soon .app-card__name,
+.app-card--soon .app-card__desc {
+  opacity: 0.55;
+  filter: grayscale(0.3);
 }
 
-#userInput {
-    width: 100%;
-    min-height: 150px;
-    padding: 20px;
-    border: 2px solid #e5e5ea;
-    border-radius: 12px;
-    font-size: 16px;
-    font-family: inherit;
-    resize: vertical;
-    transition: border-color 0.2s;
-    margin-bottom: 15px;
+.app-card__badge {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
 }
 
-#userInput:focus {
-    outline: none;
-    border-color: #667eea;
+/* ===================== 通用应用页 (app.html) ===================== */
+.app-shell {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: var(--space-16) 0 var(--space-8);
 }
 
-.submit-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    border: none;
-    padding: 14px 32px;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+.app-shell__header {
+  margin-bottom: var(--space-12);
 }
 
-.submit-btn:hover {
-    transform: scale(1.02);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+.app-shell__title {
+  margin-top: var(--space-4);
+  font-size: var(--text-3xl);
 }
 
-.submit-btn:active {
-    transform: scale(0.98);
+.app-io {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
 }
 
-.output-section {
-    margin-top: 30px;
+.app-io__output {
+  min-height: 180px;
 }
 
-.output-box {
-    background: #f5f5f7;
-    border-radius: 12px;
-    padding: 24px;
-    min-height: 150px;
-    line-height: 1.6;
+.app-io__output .placeholder {
+  color: var(--gray-400);
+  text-align: center;
+  padding: var(--space-12) 0;
 }
 
-.placeholder {
-    color: #86868b;
-    text-align: center;
-    padding: 40px 0;
-}
-
-.footer {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
+@media (max-width: 640px) {
+  .home-hero { padding: var(--space-16) 0 var(--space-12); }
+  .apps-grid { grid-template-columns: 1fr; }
 }

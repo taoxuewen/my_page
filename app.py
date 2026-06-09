@@ -55,42 +55,48 @@ AI_APPS = [
         'name': 'AI模拟面试',
         'description': '基于阿里云大模型的智能面试助手，根据简历进行针对性面试',
         'icon': '🎯',
-        'route': '/app/interview'
+        'route': '/app/interview',
+        'status': 'available'
     },
     {
         'id': 'smart-coupon',
         'name': '智能发券引擎',
         'description': '用因果模型算清楚每位客户该发多少券，在预算内优化发券策略',
         'icon': '🎫',
-        'route': '/app/smart-coupon'
+        'route': '/app/smart-coupon',
+        'status': 'available'
     },
     {
         'id': 'pet-coin',
         'name': '宠物冥币定制',
         'description': '为已故宠物定制专属冥币，让爱跨越生死',
         'icon': '💰',
-        'route': '/app/pet-coin'
+        'route': '/app/pet-coin',
+        'status': 'available'
     },
     {
         'id': 'text-generator',
         'name': '文本生成器',
         'description': '基于大模型的智能文本生成，支持多种创作场景',
         'icon': '✍️',
-        'route': '/app/text-generator'
+        'route': '/app/text-generator',
+        'status': 'coming_soon'
     },
     {
         'id': 'chat-assistant',
         'name': '智能对话助手',
         'description': '多轮对话式AI助手，提供专业咨询服务',
         'icon': '💬',
-        'route': '/app/chat-assistant'
+        'route': '/app/chat-assistant',
+        'status': 'coming_soon'
     },
     {
         'id': 'summary-tool',
         'name': '文本摘要工具',
         'description': '快速提炼长文本核心内容，高效获取信息',
         'icon': '📝',
-        'route': '/app/summary-tool'
+        'route': '/app/summary-tool',
+        'status': 'coming_soon'
     }
 ]
 
