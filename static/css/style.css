@@ -33,15 +33,15 @@
 }
 
 .home-hero__title {
-  font-size: clamp(2.75rem, 6vw, var(--text-5xl));
+  font-size: clamp(2.5rem, 5.5vw, var(--text-5xl));
   font-weight: 600;
-  line-height: 1.05;
-  max-width: 16ch;
+  line-height: 1.12;
   animation: rise 0.7s var(--ease-out) 0.08s both;
 }
 
 .home-hero__title em {
-  font-style: italic;
+  font-style: normal;
+  font-weight: 700;
   color: var(--color-accent);
 }
 
