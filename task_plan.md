@@ -8,7 +8,10 @@
 > - `demand.md` — 需求记录（用户每次提的需求 + 讨论结论，按时间倒序）
 > - `debug.md`  — bug 记录（现象 → 定位 → 修复 → 验证）
 > - `test.md`   — 测试记录（用例清单 + 历次运行结果）
+> - `DEPLOY_NOW.md` — **可覆盖**的部署生效指引：每次改动后重写，告诉部署服务器的 AI 本次要不要重启、怎么重启
 > - 子项目 `smart-coupon-engine/` 有自己独立的 plan/demand/debug/test.md（引擎内部细节看那边）
+>
+> ⚠️ **AI 协作规则见 §9，动手前必读。**
 
 ---
 
@@ -168,6 +171,24 @@ my_page/
 
 ---
 
+## 9. AI 协作与文档维护规则（必读）
+
+> 任何 AI（或人）在本项目做改动，**必须遵守以下规则**。这些规则的目的：让文档始终反映真实状态，让另一台部署服务器知道何时该重启。
+
+1. **新增/变更需求 → 记 `demand.md`**：用户每提一个新需求或改动诉求，无论大小，都要在 `demand.md` 按其模板（现象/诉求 → 讨论结论 → 落地方案）追加一条（时间倒序，最新在最上）。
+
+2. **修复 bug → 记 `debug.md`**：每修一个 bug，按其模板记录「现象 → 复现 → 根因 → 修复 → 验证 → 关联」（编号递增 B*，时间倒序）。引擎内部 bug 记到 `smart-coupon-engine/debug.md`，门户级记根目录 `debug.md`。
+
+3. **改动后 → 重写 `DEPLOY_NOW.md`**：完成一组改动后，**覆盖式重写** `DEPLOY_NOW.md`，写清本次改了哪些文件、是否需要重启 Flask 进程（改 `.py` 需重启；仅改 `templates/`、`static/` 刷新即可）、以及具体重启命令。这是给**另一台部署服务器的 AI** 看的，让它知道拉取代码后要不要重启。
+
+4. **规划/架构变动 → 更新本文件**：功能、接口契约、缺口、里程碑有变，同步改 `task_plan.md` 对应章节，并在末尾「变更日志」追加一行。
+
+5. **改了 `app.py` 必经重启**：Python 代码不随模板/静态资源热重载（B6、B7 反复踩坑）。凡涉及 `app.py` / `aliyun_llm.py` 的改动，`DEPLOY_NOW.md` 必须标注「需重启」。
+
+---
+
 ## 变更日志
 
+- **2026-06-09**：新增 §9「AI 协作与文档维护规则」——强制要求新需求记 `demand.md`、修 bug 记 `debug.md`、改动后覆盖式重写 `DEPLOY_NOW.md`（给部署服务器 AI 的重启指引）、规划变动更新本文件。新增配套文件 `DEPLOY_NOW.md`。（by Claude）
+- **2026-06-09**：全站前端专业化改版——抽出统一设计系统（`static/css/design-system.css` 令牌 + 组件、`templates/base.html` 布局基类），7 个页面收敛到「Editorial Tech」编辑风（暖白纸感 + 墨绿强调 + Fraunces/Hanken 字体），废弃旧紫色渐变；首页加占位应用「敬请期待」态（`AI_APPS` 加 `status` 字段）。详见 `demand.md`，bug 见 `debug.md` B7。（by Claude）
 - **2026-06-09**：新建门户级活文档 `task_plan.md`（本文件，基于 `smart-coupon-engine/plan.md` 改写为整个 my_page 门户视角）+ `demand.md` / `debug.md` / `test.md`。盘点全站 6 应用 + 企划书页现状，记录 5 项已知缺口（G1 引擎未接入、G2 密钥硬编码、G3 日志路径、G4 生产 debug、G5 占位应用），用于配合 planning-with-files 插件做规划与会话恢复。（by Claude）
