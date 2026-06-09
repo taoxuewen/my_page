@@ -1,43 +1,44 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ app.name }} - AI Studio</title>
-    <link rel="stylesheet" href="/static/css/style.css">
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <a href="/" class="back-link">← 返回</a>
-            <div class="logo">
-                <h1>{{ app.name }}</h1>
-            </div>
-        </header>
-        
-        <main class="main app-page">
-            <div class="app-content">
-                <div class="input-section">
-                    <textarea id="userInput" placeholder="请输入您的内容..."></textarea>
-                    <button id="submitBtn" class="submit-btn">提交</button>
-                </div>
-                
-                <div class="output-section">
-                    <div id="outputArea" class="output-box">
-                        <p class="placeholder">结果将显示在这里</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-        
-        <footer class="footer">
-            <p>© 2026 AI Studio. All rights reserved.</p>
-        </footer>
+{% extends "base.html" %}
+
+{% block title %}{{ app.name }} — AI Studio{% endblock %}
+
+{% block extra_css %}<link rel="stylesheet" href="/static/css/style.css">{% endblock %}
+
+{% block nav %}
+<nav class="site-nav">
+  <div class="container site-nav__inner">
+    <a href="/" class="site-nav__brand"><span class="brand-mark">✶</span> AI Studio</a>
+    <a href="/" class="site-nav__back">← 返回首页</a>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="app-shell">
+    <header class="app-shell__header">
+      <p class="eyebrow">AI 应用</p>
+      <h1 class="app-shell__title">{{ app.name }}</h1>
+    </header>
+
+    <div class="app-io">
+      <div class="field">
+        <label for="userInput">输入内容</label>
+        <textarea id="userInput" placeholder="请输入您的内容..."></textarea>
+      </div>
+      <button id="submitBtn" class="btn btn--primary">提交</button>
+
+      <div id="outputArea" class="card app-io__output">
+        <p class="placeholder">结果将显示在这里</p>
+      </div>
     </div>
-    
-    <script src="/static/js/app.js"></script>
-    <script>
-        const currentAppId = '{{ app.id }}';
-    </script>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="/static/js/app.js"></script>
+<script>
+  const currentAppId = '{{ app.id }}';
+</script>
+{% endblock %}

@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.status === 'success') {
                     outputArea.innerHTML = `
                         <div style="margin-bottom: 16px;">
-                            <strong style="color: #667eea;">✓ 请求成功</strong>
+                            <strong style="color: #1F6F5C;">✓ 请求成功</strong>
                         </div>
                         <div style="background: #fff; padding: 16px; border-radius: 8px; margin-bottom: 12px;">
                             <strong>输入内容：</strong>
