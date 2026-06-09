@@ -1,418 +1,212 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ============================================================
+   宠物冥币定制 — 页面特有样式（公共部分见 design-system.css）
+   外壳：统一编辑风浅色；金币主体：保留金色质感
+   ============================================================ */
+
+.pc {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a0a2e 100%);
-    min-height: 100vh;
-    color: #fff;
-    overflow-x: hidden;
+.pc__header {
+  text-align: center;
+  margin-bottom: var(--space-12);
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(147, 112, 219, 0.05) 0%, transparent 50%);
-    pointer-events: none;
+.pc__title {
+  margin: var(--space-3) 0 var(--space-2);
+  font-size: var(--text-3xl);
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    position: relative;
-    z-index: 1;
-}
-
-.header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.back-link {
-    display: inline-block;
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 16px;
-    margin-bottom: 30px;
-    transition: all 0.3s;
-    padding: 8px 16px;
-    border-radius: 20px;
-}
-
-.back-link:hover {
-    color: #ffd700;
-    background: rgba(255, 215, 0, 0.1);
-}
-
-.title-section {
-    margin-bottom: 20px;
-}
-
-.main-title {
-    font-size: 48px;
-    font-weight: 700;
-    background: linear-gradient(135deg, #ffd700 0%, #ff6b35 50%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 15px;
-    text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-}
-
-.subtitle {
-    font-size: 20px;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 300;
-}
-
-.main {
-    margin-bottom: 60px;
+.pc .subtitle {
+  color: var(--color-ink-soft);
+  font-size: var(--text-lg);
 }
 
 .content-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-/* 表单样式 */
-.form-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border-radius: 24px;
-    padding: 50px;
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
+/* ---------- 表单 ---------- */
 .form-title {
-    font-size: 28px;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 35px;
-    color: #ffd700;
-}
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.form-group select,
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 215, 0, 0.3);
-    border-radius: 12px;
-    color: #fff;
-    font-size: 16px;
-    font-family: inherit;
-    transition: all 0.3s;
-}
-
-.form-group select:focus,
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #ffd700;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-}
-
-.form-group select option {
-    background: #1a0a2e;
-    color: #fff;
-}
-
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-8);
 }
 
 .generate-btn {
-    width: 100%;
-    padding: 18px;
-    background: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%);
-    color: #1a0a2e;
-    border: none;
-    border-radius: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 10px;
+  width: 100%;
+  padding-block: 1rem;
+  font-size: var(--text-lg);
+  margin-top: var(--space-2);
 }
 
-.generate-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
-}
+/* 生成按钮 loading 切换（JS 切 .loading） */
+.btn-loading { display: none; }
+.generate-btn.loading .btn-text { display: none; }
+.generate-btn.loading .btn-loading { display: inline; }
 
-.generate-btn:active {
-    transform: translateY(0);
-}
-
-.generate-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.btn-loading {
-    display: none;
-}
-
-.generate-btn.loading .btn-text {
-    display: none;
-}
-
-.generate-btn.loading .btn-loading {
-    display: inline;
-}
-
-/* 结果展示 */
+/* ---------- 结果展示 ---------- */
 .result-section {
-    animation: fadeIn 0.6s ease;
+  animation: fadeIn 0.6s var(--ease-out);
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.coin-display {
-    text-align: center;
-}
+.coin-display { text-align: center; }
 
+/* ---- 金币主体（保留金色质感） ---- */
 .coin-card {
-    perspective: 1000px;
-    margin-bottom: 40px;
+  perspective: 1000px;
+  margin-bottom: var(--space-12);
 }
 
 .coin {
-    width: 280px;
-    height: 280px;
-    margin: 0 auto;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: coinFloat 3s ease-in-out infinite;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: coinFloat 3s ease-in-out infinite;
 }
 
 @keyframes coinFloat {
-    0%, 100% {
-        transform: translateY(0) rotateY(0deg);
-    }
-    50% {
-        transform: translateY(-15px) rotateY(5deg);
-    }
+  0%, 100% { transform: translateY(0) rotateY(0deg); }
+  50%      { transform: translateY(-15px) rotateY(5deg); }
 }
 
 .coin-inner {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .coin-front {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(145deg, #ffd700 0%, #ff6b35 50%, #ffd700 100%);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 
-        0 0 60px rgba(255, 215, 0, 0.5),
-        inset 0 0 40px rgba(255, 255, 255, 0.3);
-    position: relative;
-    overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, #F6C453 0%, #E8A317 50%, #F6C453 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    0 16px 48px rgba(232, 163, 23, 0.35),
+    inset 0 0 40px rgba(255, 255, 255, 0.35);
+  position: relative;
+  overflow: hidden;
 }
 
 .coin-front::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    border: 3px solid rgba(139, 69, 19, 0.3);
-    border-radius: 50%;
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 3px solid rgba(93, 58, 26, 0.25);
+  border-radius: 50%;
 }
 
 .coin-hole {
-    width: 50px;
-    height: 50px;
-    background: #1a0a2e;
-    border-radius: 50%;
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  background: var(--color-ink-deep);
+  border-radius: 50%;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hole-top {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .hole-bottom {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .coin-text {
-    font-size: 36px;
-    font-weight: 700;
-    color: #5d3a1a;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-    margin-bottom: 15px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 700;
+  color: #5D3A1A;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  margin-bottom: var(--space-3);
 }
 
 .coin-icon {
-    font-size: 64px;
-    margin-bottom: 10px;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  font-size: 60px;
+  margin-bottom: var(--space-2);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.25));
 }
 
 .coin-value {
-    font-size: 24px;
-    font-weight: 600;
-    color: #8b4513;
-    background: rgba(255, 255, 255, 0.3);
-    padding: 5px 20px;
-    border-radius: 15px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #8B4513;
+  background: rgba(255, 255, 255, 0.35);
+  padding: 4px 18px;
+  border-radius: var(--radius-full);
 }
 
+/* ---- 信息卡（浅色） ---- */
 .coin-info {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 35px;
-    margin-bottom: 30px;
-    border: 1px solid rgba(255, 215, 0, 0.2);
+  text-align: left;
+  margin-bottom: var(--space-8);
 }
 
 .coin-info h3 {
-    font-size: 28px;
-    color: #ffd700;
-    margin-bottom: 15px;
+  font-size: var(--text-2xl);
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
 }
 
 .coin-desc {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 25px;
-    line-height: 1.6;
+  color: var(--color-ink-soft);
+  margin-bottom: var(--space-6);
 }
 
 .coin-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
 }
 
 .detail-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 12px;
-    text-align: left;
+  background: var(--gray-100);
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
 }
 
 .detail-label {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
+  color: var(--gray-500);
+  font-size: var(--text-sm);
 }
 
 .detail-item span:last-child {
-    display: block;
-    color: #ffd700;
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 5px;
+  display: block;
+  color: var(--color-ink);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-top: var(--space-1);
 }
 
+/* ---- 再来一张 ---- */
 .create-new-btn {
-    padding: 15px 40px;
-    background: transparent;
-    color: #ffd700;
-    border: 2px solid #ffd700;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
+  border-radius: var(--radius-full);
+  padding-inline: var(--space-12);
 }
 
-.create-new-btn:hover {
-    background: #ffd700;
-    color: #1a0a2e;
-    box-shadow: 0 4px 20px rgba(255, 215, 0, 0.4);
-}
-
-.footer {
-    text-align: center;
-    padding: 30px;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-}
-
-/* 响应式设计 */
+/* ---------- 响应式 ---------- */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 36px;
-    }
-    
-    .subtitle {
-        font-size: 16px;
-    }
-    
-    .form-card {
-        padding: 30px;
-    }
-    
-    .coin {
-        width: 220px;
-        height: 220px;
-    }
-    
-    .coin-text {
-        font-size: 28px;
-    }
-    
-    .coin-icon {
-        font-size: 48px;
-    }
-    
-    .coin-value {
-        font-size: 18px;
-    }
+  .coin { width: 220px; height: 220px; }
+  .coin-text { font-size: 28px; }
+  .coin-icon { font-size: 48px; }
+  .coin-value { font-size: 18px; }
 }
