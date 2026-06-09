@@ -6,17 +6,18 @@
 }
 
 :root {
-  --primary: #0071e3;
-  --primary-hover: #0077ed;
-  --secondary: #34c759;
-  --text-primary: #1d1d1f;
-  --text-secondary: #6e6e73;
-  --text-muted: #86868b;
+  /* 对齐全站设计令牌（蓝色强调 → 墨绿，纯白底 → 暖白纸感） */
+  --primary: #1F6F5C;
+  --primary-hover: #185847;
+  --secondary: #2E7D5B;
+  --text-primary: #16161A;
+  --text-secondary: #3A3A42;
+  --text-muted: #6B6B63;
   --bg-primary: #ffffff;
-  --bg-secondary: #f5f5f7;
-  --bg-tertiary: #fafafa;
-  --border: #e8e8ed;
-  --border-light: #f0f0f2;
+  --bg-secondary: #FAFAF8;
+  --bg-tertiary: #F2F2EF;
+  --border: #E4E4E0;
+  --border-light: #F2F2EF;
   --radius: 16px;
   --radius-lg: 24px;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
@@ -29,13 +30,20 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Hanken Grotesk', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-primary);
   background-color: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题使用编辑感衬线显示字体 */
+h1, h2, h3, h4,
+.hero__title, .section__title, .navbar__title {
+  font-family: 'Fraunces', 'Songti SC', 'PingFang SC', Georgia, serif;
+  letter-spacing: -0.02em;
 }
 
 .container {
