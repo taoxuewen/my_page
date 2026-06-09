@@ -1,72 +1,71 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI模拟面试 - AI Studio</title>
-    <link rel="stylesheet" href="/static/css/interview.css">
-</head>
-<body>
-    <div class="container">
-        <header class="header">
-            <a href="/" class="back-link">← 返回首页</a>
-            <h1 class="app-title">AI模拟面试</h1>
-            <div class="progress-indicator" id="progressIndicator">
-                <span class="step" id="step1">📋 输入简历</span>
-                <span class="step" id="step2">💬 面试中</span>
-                <span class="step" id="step3">✅ 完成</span>
-            </div>
-        </header>
+{% extends "base.html" %}
 
-        <main class="main">
-            <!-- 简历输入阶段 -->
-            <div class="resume-stage" id="resumeStage">
-                <div class="resume-card">
-                    <div class="card-header">
-                        <h2>📝 请输入您的简历</h2>
-                        <p class="subtitle">AI面试官将根据您的简历进行针对性面试</p>
-                    </div>
-                    <div class="form-group">
-                        <label for="resumeInput">简历内容</label>
-                        <textarea id="resumeInput" placeholder="请在此粘贴您的简历内容..."></textarea>
-                    </div>
-                    <button id="startBtn" class="start-btn">🚀 开始面试</button>
-                </div>
-            </div>
+{% block title %}AI 模拟面试 — AI Studio{% endblock %}
 
-            <!-- 面试对话阶段 -->
-            <div class="interview-stage" id="interviewStage" style="display: none;">
-                <div class="chat-container">
-                    <div class="messages" id="messagesContainer">
-                    </div>
-                    <div class="input-area">
-                        <textarea id="userInput" placeholder="请输入您的回答..."></textarea>
-                        <button id="sendBtn" class="send-btn">
-                            <span class="btn-text">发送</span>
-                            <span class="btn-loading">
-                                <span class="spinner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+{% block extra_css %}<link rel="stylesheet" href="/static/css/interview.css">{% endblock %}
 
-            <!-- 完成阶段 -->
-            <div class="complete-stage" id="completeStage" style="display: none;">
-                <div class="complete-card">
-                    <div class="icon">🎉</div>
-                    <h2>面试完成！</h2>
-                    <p>感谢您参与本次模拟面试</p>
-                    <button id="restartBtn" class="restart-btn">重新开始</button>
-                </div>
-            </div>
-        </main>
+{% block nav %}
+<nav class="site-nav">
+  <div class="container site-nav__inner">
+    <a href="/" class="site-nav__brand"><span class="brand-mark">✶</span> AI Studio</a>
+    <a href="/" class="site-nav__back">← 返回首页</a>
+  </div>
+</nav>
+{% endblock %}
 
-        <footer class="footer">
-            <p>版权归逃学文所有</p>
-        </footer>
+{% block content %}
+<div class="container iv">
+  <header class="iv__header">
+    <div>
+      <p class="eyebrow">AI 模拟面试</p>
+      <h1 class="iv__title">让 AI 面试官陪你练一场</h1>
     </div>
+    <ol class="progress-indicator" id="progressIndicator">
+      <li class="step" id="step1">输入简历</li>
+      <li class="step" id="step2">面试中</li>
+      <li class="step" id="step3">完成</li>
+    </ol>
+  </header>
 
-    <script src="/static/js/interview.js"></script>
-</body>
-</html>
+  <!-- 简历输入阶段 -->
+  <div class="resume-stage" id="resumeStage">
+    <div class="resume-card card">
+      <div class="card-header">
+        <h2>请粘贴你的简历</h2>
+        <p class="subtitle">AI 面试官将根据简历内容进行针对性提问</p>
+      </div>
+      <div class="field">
+        <label for="resumeInput">简历内容</label>
+        <textarea id="resumeInput" placeholder="请在此粘贴您的简历内容..."></textarea>
+      </div>
+      <button id="startBtn" class="btn btn--primary start-btn">开始面试</button>
+    </div>
+  </div>
+
+  <!-- 面试对话阶段 -->
+  <div class="interview-stage" id="interviewStage" style="display: none;">
+    <div class="chat-container">
+      <div class="messages" id="messagesContainer"></div>
+      <div class="input-area">
+        <textarea id="userInput" placeholder="请输入您的回答..."></textarea>
+        <button id="sendBtn" class="btn btn--primary send-btn">
+          <span class="btn-text">发送</span>
+          <span class="btn-loading"><span class="spinner"></span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 完成阶段 -->
+  <div class="complete-stage" id="completeStage" style="display: none;">
+    <div class="complete-card card">
+      <div class="icon">🎉</div>
+      <h2>面试完成！</h2>
+      <p>感谢你参与本次模拟面试，祝你拿到心仪的 offer。</p>
+      <button id="restartBtn" class="btn btn--secondary restart-btn">重新开始</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}<script src="/static/js/interview.js"></script>{% endblock %}
