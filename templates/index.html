@@ -26,25 +26,25 @@
   <div class="container">
     <div class="apps__head">
       <h2 class="apps__title">应用</h2>
-      <span class="apps__count">{{ apps | selectattr('status', 'equalto', 'available') | list | length }} 个已上线</span>
+      <span class="apps__count">{{ apps | rejectattr('status', 'equalto', 'coming_soon') | list | length }} 个已上线</span>
     </div>
 
     <div class="apps-grid">
       {% for app in apps %}
-        {% if app.status == 'available' %}
-        <a href="{{ app.route }}" class="app-card card--hover">
-          <div class="app-card__icon">{{ app.icon }}</div>
-          <h3 class="app-card__name">{{ app.name }}</h3>
-          <p class="app-card__desc">{{ app.description }}</p>
-          <span class="app-card__cta">进入应用 →</span>
-        </a>
-        {% else %}
+        {% if app.status == 'coming_soon' %}
         <div class="app-card app-card--soon" aria-disabled="true">
           <span class="badge badge--muted app-card__badge">敬请期待</span>
           <div class="app-card__icon">{{ app.icon }}</div>
           <h3 class="app-card__name">{{ app.name }}</h3>
           <p class="app-card__desc">{{ app.description }}</p>
         </div>
+        {% else %}
+        <a href="{{ app.route }}" class="app-card card--hover">
+          <div class="app-card__icon">{{ app.icon }}</div>
+          <h3 class="app-card__name">{{ app.name }}</h3>
+          <p class="app-card__desc">{{ app.description }}</p>
+          <span class="app-card__cta">进入应用 →</span>
+        </a>
         {% endif %}
       {% endfor %}
     </div>
